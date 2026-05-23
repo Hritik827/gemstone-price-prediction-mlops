@@ -1,88 +1,92 @@
-# Gemstone Price Prediction
+# 💎 Gemstone Price Prediction MLOps Project
 
-### Introduction About the Data :
+<div align="center">
 
-Please this project is of a student. Just wanted to appreciate for knowledge sharing 
+![Gemstone Price Prediction](https://img.shields.io/badge/Project-Gemstone%20Price%20Prediction-blue?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.8%2B-yellow?style=for-the-badge&logo=python)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Regression-green?style=for-the-badge)
+![Flask](https://img.shields.io/badge/Flask-Web%20App-black?style=for-the-badge&logo=flask)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?style=for-the-badge&logo=docker)
+![MLOps](https://img.shields.io/badge/MLOps-End--to--End-purple?style=for-the-badge)
 
-**The dataset** The goal is to predict `price` of given diamond (Regression Analysis).
+### End-to-End Machine Learning Project for Predicting Gemstone Prices
 
-There are 10 independent variables (including `id`):
+**Built by Hritik Patil**
 
-* `id` : unique identifier of each diamond
-* `carat` : Carat (ct.) refers to the unique unit of weight measurement used exclusively to weigh gemstones and diamonds.
-* `cut` : Quality of Diamond Cut
-* `color` : Color of Diamond
-* `clarity` : Diamond clarity is a measure of the purity and rarity of the stone, graded by the visibility of these characteristics under 10-power magnification.
-* `depth` : The depth of diamond is its height (in millimeters) measured from the culet (bottom tip) to the table (flat, top surface)
-* `table` : A diamond's table is the facet which can be seen when the stone is viewed face up.
-* `x` : Diamond X dimension
-* `y` : Diamond Y dimension
-* `x` : Diamond Z dimension
+</div>
 
-Target variable:
-* `price`: Price of the given Diamond.
+---
 
-Dataset Source Link :
-[https://www.kaggle.com/competitions/playground-series-s3e8/data?select=train.csv](https://www.kaggle.com/competitions/playground-series-s3e8/data?select=train.csv)
+## 📌 Project Overview
 
-### It is observed that the categorical variables 'cut', 'color' and 'clarity' are ordinal in nature
+This project is an end-to-end **Gemstone Price Prediction** machine learning application.
 
-### Check this link for details : [American Gem Society](https://www.americangemsociety.org/ags-diamond-grading-system/)
+The goal of this project is to predict the price of a gemstone/diamond based on important features such as carat, cut, color, clarity, depth, table, and physical dimensions.
 
-# AWS Deployment Link :
+This project is designed using a complete machine learning and MLOps workflow, including data ingestion, data transformation, model training, prediction pipeline, Flask web application, Docker support, and deployment-ready structure.
 
-AWS Elastic Beanstalk link : [http://gemstonepriceutkarshgaikwad-env.eba-7zp3wapg.ap-south-1.elasticbeanstalk.com/](http://gemstonepriceutkarshgaikwad-env.eba-7zp3wapg.ap-south-1.elasticbeanstalk.com/)
+---
 
-# Screenshot of UI
+## 🎯 Problem Statement
 
-![HomepageUI](./Screenshots/HomepageUI.jpg)
+Gemstone pricing depends on several physical and quality-based features. Manual price estimation can be inconsistent, time-consuming, and difficult for large datasets.
 
-# YouTube Video Link
+The objective of this project is to build a machine learning regression model that predicts the `price` of a gemstone using its given characteristics.
 
-Link for YouTube Video : Click the below thumbnail to open 
+This is a **supervised regression problem**.
 
-[![https://youtu.be/Xvk5r0t_RQw](https://i.ytimg.com/vi/Xvk5r0t_RQw/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBbp5SouquUm3Y3t-NYfOYsg4N4oQ)](https://youtu.be/Xvk5r0t_RQw)
+---
 
-# AWS API Link
+## 🧠 Key Highlights
 
-API Link : [http://gemstonepriceutkarshgaikwad-env.eba-7zp3wapg.ap-south-1.elasticbeanstalk.com/predictAPI](http://gemstonepriceutkarshgaikwad-env.eba-7zp3wapg.ap-south-1.elasticbeanstalk.com/predictAPI)
+- End-to-end machine learning pipeline
+- Clean modular project structure
+- Data ingestion and transformation pipeline
+- Multiple regression model comparison
+- Best model selection
+- Flask-based web application
+- Prediction pipeline for real-time input
+- Docker support
+- MLOps-ready architecture
+- Notebook-based EDA and model experimentation
 
-# Postman Testing of API :
+---
 
-![API Prediction](./Screenshots/APIPrediction.jpg)
+## 📊 Dataset Information
 
-# Approach for the project 
+The dataset is taken from Kaggle Playground Series.
 
-1. Data Ingestion : 
-    * In Data Ingestion phase the data is first read as csv. 
-    * Then the data is split into training and testing and saved as csv file.
+Dataset Source:  
+[Gemstone Price Prediction Dataset](https://www.kaggle.com/competitions/playground-series-s3e8/data?select=train.csv)
 
-2. Data Transformation : 
-    * In this phase a ColumnTransformer Pipeline is created.
-    * for Numeric Variables first SimpleImputer is applied with strategy median , then Standard Scaling is performed on numeric data.
-    * for Categorical Variables SimpleImputer is applied with most frequent strategy, then ordinal encoding performed , after this data is scaled with Standard Scaler.
-    * This preprocessor is saved as pickle file.
+The target variable is:
 
-3. Model Training : 
-    * In this phase base model is tested . The best model found was catboost regressor.
-    * After this hyperparameter tuning is performed on catboost and knn model.
-    * A final VotingRegressor is created which will combine prediction of catboost, xgboost and knn models.
-    * This model is saved as pickle file.
+| Column | Description |
+|---|---|
+| `price` | Price of the gemstone/diamond |
 
-4. Prediction Pipeline : 
-    * This pipeline converts given data into dataframe and has various functions to load pickle files and predict the final results in python.
+The independent features are:
 
-5. Flask App creation : 
-    * Flask app is created with User Interface to predict the gemstone prices inside a Web Application.
+| Feature | Description |
+|---|---|
+| `id` | Unique identifier for each gemstone |
+| `carat` | Weight of the gemstone |
+| `cut` | Quality of the diamond cut |
+| `color` | Color grade of the diamond |
+| `clarity` | Clarity grade of the diamond |
+| `depth` | Depth percentage of the diamond |
+| `table` | Width of the top facet of the diamond |
+| `x` | Length of the diamond |
+| `y` | Width of the diamond |
+| `z` | Depth/height of the diamond |
 
-# Exploratory Data Analysis Notebook
+---
 
-Link : [EDA Notebook](./notebook/1_EDA_Gemstone_price.ipynb)
+## 💡 Important Data Observation
 
-# Model Training Approach Notebook
+The categorical columns below are ordinal in nature:
 
-Link : [Model Training Notebook](./notebook/2_Model_Training_Gemstone.ipynb)
-
-# Model Interpretation with LIME 
-
-Link : [LIME Interpretation](./notebook/3_Explainability_with_LIME.ipynb)
+```text
+cut
+color
+clarity
